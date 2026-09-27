@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "ts": "2026-09-27T09:50:23.709738Z",
+    "seed": 42,
+    "trades_cfg": 10000,
+    "framework": "dtb-0.2-real",
+    "sha256_16": "53fbaf3440c60a96"
+  },
+  "breakeven_table": {
+    "1": 0.5,
+    "1.5": 0.4,
+    "2": 0.3333333333333333,
+    "3": 0.25
+  },
+  "monte_carlo": {
+    "realistic 45%@2R 1%": {
+      "ruin_prob_50pct": 0.0,
+      "median_end": 736841.9278996282,
+      "p10_end": 405578.3713291041,
+      "p90_end": 1338671.0561798655,
+      "median_max_loss_streak": 10.0,
+      "n_paths": 3000,
+      "trades": 1000,
+      "seed": 42,
+      "expectancy_R": 0.35,
+      "breakeven": 0.3333333333333333,
+      "exp_loss_streak": 11.554579710274307
+    },
+    "high-win low-RR 60%@1.2R": {
+      "ruin_prob_50pct": 0.0,
+      "median_end": 575871.1873606755,
+      "p10_end": 371038.513894712,
+      "p90_end": 913644.0409890921,
+      "median_max_loss_streak": 7.0,
+      "n_paths": 3000,
+      "trades": 1000,
+      "seed": 42,
+      "expectancy_R": 0.31999999999999995,
+      "breakeven": 0.45454545454545453,
+      "exp_loss_streak": 7.53882478419618
+    },
+    "aggressive 35%@2.5R 2%": {
+      "ruin_prob_50pct": 0.0,
+      "median_end": 1291647.1299200477,
+      "p10_end": 348211.12245014263,
+      "p90_end": 4791209.127645172,
+      "median_max_loss_streak": 14.0,
+      "n_paths": 3000,
+      "trades": 1000,
+      "seed": 42,
+      "expectancy_R": 0.22499999999999998,
+      "breakeven": 0.2857142857142857,
+      "exp_loss_streak": 16.035351033975548
+    }
+  },
+  "scanner_demo": [
+    {
+      "symbol": "OBLN*",
+      "chg": 0.4,
+      "rvol": 214.0,
+      "floatM": 6.0,
+      "rotation": 53.5,
+      "spread_c": 12,
+      "checks": {
+        "chg>=10%": true,
+        "rvol>=2": true,
+        "price 2-20": true,
+        "news": true,
+        "float<=20M": true,
+        "float<=50M": true,
+        "spread_ok": true,
+        "rotation>=1": true
+      },
+      "grade": "A+"
+    },
+    {
+      "symbol": "AAA",
+      "chg": 0.1304,
+      "rvol": 4.0,
+      "floatM": 12.0,
+      "rotation": 0.667,
+      "spread_c": 6,
+      "checks": {
+        "chg>=10%": true,
+        "rvol>=2": true,
+        "price 2-20": true,
+        "news": true,
+        "float<=20M": true,
+        "float<=50M": true,
+        "spread_ok": true,
+        "rotation>=1": false
+      },
+      "grade": "A+"
+    },
+    {
+      "symbol": "CCC",
+      "chg": 0.0625,
+      "rvol": 5.0,
+      "floatM": 500.0,
+      "rotation": 0.01,
+      "spread_c": 1,
+      "checks": {
+        "chg>=10%": false,
+        "rvol>=2": true,
+        "price 2-20": false,
+        "news": false,
+        "float<=20M": false,
+        "float<=50M": false,
+        "spread_ok": true,
+        "rotation>=1": false
+      },
+      "grade": "SKIP"
+    },
+    {
+      "symbol": "BBB",
+      "chg": 0.1667,
+      "rvol": 4.0,
+      "floatM": 200.0,
+      "rotation": 0.1,
+      "spread_c": 2,
+      "checks": {
+        "chg>=10%": true,
+        "rvol>=2": true,
+        "price 2-20": false,
+        "news": true,
+        "float<=20M": false,
+        "float<=50M": false,
+        "spread_ok": true,
+        "rotation>=1": false
+      },
+      "grade": "SKIP"
+    },
+    {
+      "symbol": "DDD",
+      "chg": 0.1011,
+      "rvol": 1.2,
+      "floatM": 15.0,
+      "rotation": 0.2,
+      "spread_c": 8,
+      "checks": {
+        "chg>=10%": true,
+        "rvol>=2": false,
+        "price 2-20": true,
+        "news": true,
+        "float<=20M": true,
+        "float<=50M": true,
+        "spread_ok": true,
+        "rotation>=1": false
+      },
+      "grade": "SKIP"
+    }
+  ],
+  "guardrail_demo": {
+    "good_pass": true,
+    "good_msgs": [
+      "daily brake clear",
+      "halts/SSR/IML clear",
+      "R:R 2.00 >= 2.0",
+      "price $5.20 in band",
+      "momentum filters pass",
+      "risk $250 <= 2x avg $250",
+      "notional $2600 within 25%"
+    ],
+    "bad_pass": false,
+    "bad_msgs": [
+      "daily brake clear",
+      "halts/SSR/IML clear",
+      "REJECT R:R 0.50 < 2.0 (#5)"
+    ]
+  }
+}

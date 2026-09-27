@@ -1,0 +1,9 @@
+name: Bug report
+description: Something verified-broken
+body:
+  - type: textarea
+    id: repro
+    attributes: {label: Repro steps, value: "PYTHONPATH=src pytest -q\n..."}
+  - type: textarea
+    id: evidence
+    attributes: {label: Evidence (logs, hashes, links)}

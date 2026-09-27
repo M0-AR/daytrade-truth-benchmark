@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: DayTrade Truth Benchmark
+version: 0.2.0
+date-released: 2026-09-27
+license: MIT
+repository-code: https://github.com/M0-AR/daytrade-truth-benchmark
+abstract: Reproducible audit of momentum day-trading claims against 2026-2027 evidence, with live Yahoo data and cost stress.
+authors:
+  - family-names: Contributors
+    given-names: DayTrade Truth Benchmark
+keywords: [day-trading, backtesting, reproducibility, market-microstructure, fintech-education]

@@ -1,0 +1,6 @@
+name: Feature request
+description: Propose with a cited source
+body:
+  - type: textarea
+    id: why
+    attributes: {label: Why + 2026-2027 source URL}

@@ -1,0 +1,30 @@
+services:
+  benchmark:
+    build: .
+    container_name: dtb-benchmark
+    volumes:
+      - ./results:/app/results
+      - ./data:/app/data:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: ["bash", "-lc", "pytest -q && python -m dtb.benchmark --trades 10000 --seed 42 --out results/benchmark.json && python -m dtb.benchmark_real --out results/real_benchmark.json"]
+
+  docs:
+    build: .
+    container_name: dtb-docs
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./docs:/app/docs:ro
+      - ./README.md:/app/README.md:ro
+    command: ["bash", "-lc", "python -m http.server 8000 --directory /app"]
+    profiles: ["docs"]
+
+  lab:
+    build: .
+    container_name: dtb-lab
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    command: ["bash"]
