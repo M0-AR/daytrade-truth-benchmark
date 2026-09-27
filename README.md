@@ -27,7 +27,7 @@
 </p>
 
 > [!NOTE]
-> Nothing here is asserted by hand without a verified 2026–2027 source. Every number maps to `docs/01-claims-verification-matrix.md` + `docs/05-search-audit-log.md` with URL, date, and vote. Educational research only — not investment advice.
+> **Executive summary.** Most day traders lose money — about 70% of US accounts, over 80% in Taiwan, and 97% of persistent traders in Brazil, with under 1% predictably profitable. This repo tests Ross Cameron's momentum day-trading method against live 2024–2026 market data and current regulation, and finds the core risk math holds up while naive gap-chasing loses money after costs. The $25,000 pattern-day-trader rule is gone as of June 2026, replaced by intraday margin monitoring. Everything here runs with one command, is fully reproducible, and is built to grow into a rigorous PhD study. Educational research only — not investment advice.
 
 ## 🎬 Demo video + screenshots
 
@@ -39,13 +39,13 @@
 | +10% days / 686 bars: meme pond vs large-cap desert | Naive +5% gap Open→Close: gross vs net@30bps (UPPER BOUND) |
 
 ![dashboard](assets/dashboard.png)
-<p align="center"><i>Playwright full-page capture of <code>results/dashboard.html</code> (1666×1419, 2026-09-27). Re-capture: serve + <code>playwright_browser_navigate</code> → snapshot → <code>take_screenshot</code>.</i></p>
+<p align="center"><i>Playwright full-page capture of <code>results/dashboard.html</code> (2026-09-27). Re-capture instructions: <code>docs/DEMO.md</code>.</i></p>
 
 ## ✨ Why this repo is different
 
 | Feature | Detail |
 |---|---|
-| 🔬 Verified, not vibes | 11 Exa + SearXNG + DuckDuckGo + Jina searches, sequential (no 429), voted ✅/⚠️/❌ |
+| 🔬 Evidence-backed | Results checked against 2026–2027 academic research and current regulation (sources in `docs/`) |
 | 📈 Live data | 8 Yahoo tickers × 686 days (2024-01-02→2026-09-25), hashed `900e12da`, docker-reproduced |
 | 🛡️ Executable guardrails | Cameron 20 + SSR Rule 201 + LULD + FINRA 2026 IML as code (`src/dtb/guardrails.py`) |
 | 💸 Cost truth | 5/15/30/50/100bps arms; QuanterLab ladder; naive gaps go negative net |
@@ -95,7 +95,7 @@ Full votes: `docs/01-claims-verification-matrix.md`.
 | Python | 3.12 (`requirements.txt`: numpy, pandas, pytest, yfinance, requests) |
 | Docker | `docker compose up --build benchmark` (retries + `data/` baked in) |
 | Video | `ffmpeg` preinstalled; optional `vhs` + `ttyd` for `docs/demo.tape` |
-| Browser shots | Playwright MCP (`playwright_browser_navigate` + `take_screenshot`) |
+| Screenshots | See `docs/DEMO.md` for the capture workflow |
 
 ## 💻 Usage / CLI
 
@@ -164,8 +164,7 @@ MIT — see [LICENSE](LICENSE). If you use this in a thesis, please cite via [CI
 - Ross Cameron / Warrior Trading (book + audited statements under test)
 - Barber, Chague, Jordan/Diltz, Garvey/Murphy, Amihud (base rates + microstructure)
 - FINRA/SEC (26-10, 34-105226), QuanterLab, Alphanume, HF Data Library, Yahoo Finance (free data with caveats)
-- README craft: mdkit, banger-readme, standard-readme; badges: shields.io; demos: charmbracelet/vhs, Playwright, ffmpeg
-- Videos取代不了尽职调查 — demo shows tooling, not trading advice.
+- Badges: shields.io; demo tooling: charmbracelet/vhs, Playwright, ffmpeg
 
 > [!WARNING]
 > Educational research only. Most day traders lose money. Past (even audited) performance ≠ future results. Do not run live on this code.
